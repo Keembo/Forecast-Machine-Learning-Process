@@ -14,7 +14,7 @@ st.subheader("Please type the value and click the predict button to predicted de
 # User inputs
 with st.form(key="month and year to predict"):
     year = st.number_input("Year", min_value=2017, value=datetime.datetime.now().year)
-    month = st.number_input("Month", min_value=1, value=datetime.datetime.now().month)
+    month = st.number_input("Month", min_value=1, max_value=12,value=datetime.datetime.now().month)
 
     # Submit button
     submit_button = st.form_submit_button(label="Predict")
@@ -28,7 +28,7 @@ with st.form(key="month and year to predict"):
         with st.spinner("Predicting..."):
             
             #Send request
-            response = requests.post("http://127.0.0.1:8000/predict", json=data)
+            response = requests.post("http://api:8000/predict", json=data)
             result = response.json()
             
             # if success

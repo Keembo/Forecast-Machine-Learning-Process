@@ -18,7 +18,8 @@ async def hello():
 
 # Load model function
 def load_model():
-    with open(r'model/demand_forecasting_model.pkl', 'rb') as file:
+    model_path = 'model/demand_forecasting_model.pkl'
+    with open(model_path, 'rb') as file:
         model = load(file)
     return model
 
