@@ -2,16 +2,10 @@
 from fastapi import FastAPI, Request
 from joblib import load
 import pandas as pd
-# import pydantic as BaseModel
 import uvicorn
 
 # App definition
 app = FastAPI()
-
-# # Request definition
-# class Request(BaseModel):
-#     order_year: int
-#     order_month: int
 
 # Api Status
 @app.get("/")
@@ -70,7 +64,7 @@ async def predict(request: Request):
     model = load_model()
     
     # validation to make sure the request is above training data
-    if month_request < 12 & year_request < 2017:
+    if month_request < 12 and year_request < 2017:
         response = {
             "code": 400,
             "message": "Month and Year needs to be greater than 12 and greater than 2017!"

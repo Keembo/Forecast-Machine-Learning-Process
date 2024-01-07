@@ -88,7 +88,7 @@ def make_predictions(model, year, month):
 
 # Model Training Process
 # Loading the dataset
-dataset = load_dataset(r'/home/keembo/pacmann_project/notebook/DataCoSupplyChainDataset.csv')
+dataset = load_dataset(r'/home/keembo/pacmann_project/data/DataCoSupplyChainDataset.csv')
 
 # Cleaning the dataset and Transforming the dataset
 dataset_cleaned = clean_dataset(dataset)
