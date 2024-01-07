@@ -51,7 +51,7 @@ def split_dataset(y):
     # Split the data
     y_train = y[:split_point]
     y_test = y[split_point:]
-    return y_test, y_train
+    return y_train, y_test
 
 # Train the model function
 def train_model(y_train):
@@ -63,16 +63,16 @@ def train_model(y_train):
     model = sarima_model.fit()
     return model
 
-# # Prepare the input data for prediction
-# def input_data(year, month):
-#     input_data = pd.DataFrame(
-#         {
-#             'order_year': [year],
-#             'order_month': [month]
-#         }
-#     )
-#     input_data = pd.DataFrame(input_data, columns=['order_year', 'order_month'])
-#     return year, month
+# Prepare the input data for prediction
+def input_data(year, month):
+    input_data = pd.DataFrame(
+        {
+            'order_year': [year],
+            'order_month': [month]
+        }
+    )
+    input_data = pd.DataFrame(input_data, columns=['order_year', 'order_month'])
+    return year, month
 
 # Predict on the test set
 def make_predictions(model, year, month):
